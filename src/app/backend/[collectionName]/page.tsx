@@ -18,7 +18,7 @@ export default function Page () {
   const columnDefs = featuresMap.get(collectionName)
 
   return (
-    <div>
+    <div className='p-6 rounded-md bg-white'>
       <Table columnDefs={columnDefs} data={data.result} />
     </div>
   )

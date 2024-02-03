@@ -9,6 +9,10 @@ const getMany = (url) => axios.get(url).then((resp) => resp.data)
 export const useOne = (url) => useSWR(url, getOne)
 export const useMany = (url) => useSWR(url, getMany)
 
-// login hook
-const login = (url, { arg: { username, password } }) => axios.post(url, { username, password }).then((resp) => resp.data)
-export const useLogin = (url) => useSWRMutation(url, login)
+// sign hook
+const sign = (url, { arg: { username, password } }) => axios.post(url, { username, password }).then((resp) => resp.data)
+export const useSign = (url) => useSWRMutation(url, sign)
+
+// logout
+export const logout = (url) => axios.post(url).then((resp) => resp.data)
+export const useLogout = (url) => useSWRMutation(url, logout)

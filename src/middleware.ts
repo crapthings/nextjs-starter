@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 
 import { getSession } from '@/utils/session'
-import { PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER } from 'next/dist/lib/constants'
 
 export const config = {
   matcher: [

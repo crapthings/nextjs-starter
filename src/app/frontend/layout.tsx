@@ -1,11 +1,11 @@
-import '@/backend.css'
+import '@/frontend.css'
 
 export const metadata = {
-  title: 'Next.js Starter Admin',
+  title: 'Next.js Starter',
   description: 'Powered by Next.js',
 }
 
-export default async function RootLayout ({ children }) {
+export default function RootLayout ({ children }) {
   return (
     <html lang='en'>
       <body suppressHydrationWarning={true}>{children}</body>

@@ -2,20 +2,25 @@
 
 import { useForm } from 'react-hook-form'
 
-import { useLogin } from '@/hooks/api'
+import { useSign } from '@/hooks/api'
 import { useRouter } from 'next/navigation'
 
 export default function LoginPage () {
   const router = useRouter()
 
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      username: 'admin123',
+      password: 'admin123',
+    }
+  })
 
-  const login = useLogin('/admin/login')
+  const login = useSign('/admin/login')
 
   const handleLogin = ({ username, password }) => {
     login.trigger({ username, password }, {
       onSuccess () {
-        router.back()
+        router.push('/backend')
       }
     })
   }

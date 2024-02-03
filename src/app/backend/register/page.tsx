@@ -10,17 +10,17 @@ export default function LoginPage () {
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      username: 'test123',
-      password: 'test123',
+      username: 'admin123',
+      password: 'admin123',
     }
   })
 
-  const login = useSign('/login')
+  const sign = useSign('/admin/register')
 
   const handleLogin = ({ username, password }) => {
-    login.trigger({ username, password }, {
+    sign.trigger({ username, password }, {
       onSuccess () {
-        router.push('/')
+        router.push('/backend')
       }
     })
   }
@@ -30,7 +30,7 @@ export default function LoginPage () {
       <form onSubmit={handleSubmit(handleLogin)} className='flex flex-col gap-4'>
         <input type='text' {...register('username')} />
         <input type='password' {...register('password')} />
-        <input type='submit' value='login' />
+        <input type='submit' value='register' />
       </form>
     </div>
   )

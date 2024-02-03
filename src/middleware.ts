@@ -12,12 +12,14 @@ export const config = {
 
 const whitelist = {
   '/frontend/login': true,
+  '/backend/login': true,
+  '/api/health': true,
   '/api/register': true,
   '/api/login': true,
-
-  '/backend/login': true,
+  '/api/logout': true,
   '/api/admin/register': true,
   '/api/admin/login': true,
+  '/api/admin/logout': true,
 }
 
 const pageHandler = async ({ req, res, url, isAdmin }) => {

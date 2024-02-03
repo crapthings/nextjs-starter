@@ -4,7 +4,11 @@ export default async function Page () {
   return (
     <div>
       <div>frontend page</div>
-      <Link href='/frontend/logout'>Logout</Link>
+
+      <div className='flex flex-col'>
+        <Link href='/backend'>Backend</Link>
+        <Link href='/frontend/logout'>Logout</Link>
+      </div>
     </div>
   )
 }

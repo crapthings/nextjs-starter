@@ -10,7 +10,15 @@ export async function middleware (req, res) {
     return NextResponse.next()
   }
 
-  const { user } = await getSession(req, res)
+  let user = null
+
+  if (pathname.startsWith('/api/admin')) {
+    const session = await getSession(req, res, true)
+    user = session.user
+  } else {
+    const session = await getSession(req, res)
+    user = session.user
+  }
 
   if (!user) {
     return Response.json(
@@ -25,4 +33,6 @@ const whitelist = {
   '/api/register': true,
   '/api/login': true,
   '/api/logout': true,
+  '/api/admin/administrators/register': true,
+  '/api/admin/administrators/login': true,
 }

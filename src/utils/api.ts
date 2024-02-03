@@ -5,7 +5,8 @@ export const normalizeDoc = (data) => {
   return {
     ...data,
     _id: nanoid(24),
-    createdAt: new Date()
+    createdAt: new Date(),
+    isDeleted: false,
   }
 }
 
@@ -14,14 +15,15 @@ export const errorHandler = (fn) => async (req, res) => {
     await fn(req, res)
   } catch (ex) {
     if (ex.code === 11000) {
-      return res.status(409).json({ success: false, message: 'User already exists' })
+      console.error(ex)
+      return res.status(409).json({ success: false, error: 'User already exists' })
     }
 
-    console.debug(ex)
+    console.log(ex)
 
     const statusCode = ex.statusCode || 500
     const message = ex.message || 'An error occurred'
 
-    res.status(statusCode).json({ success: false, message })
+    res.status(statusCode).json({ success: false, error: message })
   }
 }

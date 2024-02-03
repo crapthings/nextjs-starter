@@ -3,14 +3,21 @@
 import { useForm } from 'react-hook-form'
 
 import { useLogin } from '@/hooks/api'
+import { useRouter } from 'next/navigation'
 
 export default function LoginPage () {
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const router = useRouter()
+
+  const { register, handleSubmit } = useForm()
 
   const login = useLogin('/admin/login')
 
   const handleLogin = ({ username, password }) => {
-    login.trigger({ username, password })
+    login.trigger({ username, password }, {
+      onSuccess () {
+        router.back()
+      }
+    })
   }
 
   return (

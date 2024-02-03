@@ -1,14 +1,6 @@
-'use client'
-
-import { faker } from '@faker-js/faker'
+import { redirect } from 'next/navigation'
 
 export default function Page () {
-  faker.seed(123)
-
-  return (
-    <div className='flex'>
-      <div>aside</div>
-      <div className='bg-red-900'>main</div>
-    </div>
-  )
+  redirect('/frontend')
+  return null
 }

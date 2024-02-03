@@ -1,14 +1,19 @@
 import mongodb from '@/libs/mongodb'
 import { hashPassword } from '@/utils/password'
-import { normalizeDoc } from '@/utils/data'
+import { errorHandler, normalizeDoc } from '@/utils/api'
 
-export default async function (req, res) {
+export default errorHandler(async function (req, res) {
+  const { password, ...body } = req.body
+
   const data = {
-    ...normalizeDoc(req.body),
-    password: await hashPassword(req.body.password)
+    ...normalizeDoc(body),
+    password: await hashPassword(password)
   }
 
   const result = await mongodb.db().collection('users').insertOne({ ...data })
 
-  res.json({ result })
-}
+  res.json({
+    success: true,
+    result
+  })
+})

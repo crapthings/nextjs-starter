@@ -21,6 +21,8 @@ export async function middleware (req, res) {
 }
 
 const whitelist = {
+  '/api/health': true,
   '/api/register': true,
   '/api/login': true,
+  '/api/logout': true,
 }

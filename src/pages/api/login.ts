@@ -1,31 +1,37 @@
 import _ from 'lodash'
 
 import { users } from '@/libs/mongodb'
-import { hashPassword, comparePassword } from '@/utils/password'
+import { comparePassword } from '@/utils/password'
 import { getSession } from '@/utils/session'
+import { errorHandler } from '@/utils/api'
 
-export default async function (req, res) {
+export default errorHandler(async function (req, res) {
   const { username, password } = req.body
 
-  const user = await users.findOne({ username })
+  const foundUser = await users.findOne({ username })
 
-  if (!user) {
-    throw new Error('User not found')
+  if (!foundUser) {
+    const err = new Error('User not found')
+    err.statusCode = 404
+    throw err
   }
 
-  const hashedPassword = await hashPassword(password)
-
-  const isMatch = await comparePassword(password, hashedPassword)
+  const isMatch = await comparePassword(password, foundUser.password)
 
   if (!isMatch) {
-    throw new Error('Wrong password')
+    const err = new Error('Wrong password')
+    err.statusCode = 401
+    throw err
   }
 
   const session = await getSession(req, res)
 
-  session.user = _.omit(user, ['password'])
+  session.user = _.omit(foundUser, ['password'])
 
   await session.save()
 
-  res.json({ result: user })
-}
+  res.json({
+    success: true,
+    result: foundUser
+  })
+})

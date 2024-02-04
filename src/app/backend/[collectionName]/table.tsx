@@ -1,8 +1,12 @@
 import _ from 'lodash'
 
-export default function Table ({ columnDefs, data }) {
+import Pagination from './pagination'
+
+export default function Table ({ columnDefs, total, limit, rows }) {
   return (
-    <div className='overflow-x-auto'>
+    <div className='overflow-x-auto space-y-2'>
+      <Pagination total={total} limit={limit} />
+
       <table className='table-auto w-full'>
         <thead className='bg-zinc-100 font-semibold text-black/50'>
           <tr>
@@ -13,7 +17,7 @@ export default function Table ({ columnDefs, data }) {
         </thead>
 
         <tbody className='divide-y divide-zinc-200'>
-          {data.map((item) => (
+          {rows.map((item) => (
             <tr key={item._id}>
               {_.map(columnDefs, Cell(item))}
             </tr>

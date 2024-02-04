@@ -16,7 +16,7 @@ export default function Pagination ({ columnDefs, total, limit, rows }) {
 
   const searchParams = useSearchParams()
 
-  const currentPage = parseInt(searchParams.get('page'))
+  const currentPage = parseInt(searchParams.get('page') ?? 1)
 
   const totalPage = Math.floor(total / limit)
 
@@ -51,6 +51,11 @@ export default function Pagination ({ columnDefs, total, limit, rows }) {
       <button onClick={handlePage(totalPage)} className='flex justify-center items-center size-8 rounded-md bg-black/10'>
         <Icon path={mdiChevronDoubleRight} size={.7} />
       </button>
+
+      <label className='block flex items-center gap-1 px-2 border rounded-md'>
+        <input type='number' defaultValue={currentPage} min={1} max={totalPage} onChange={(e) => handlePage(e.target.value)()} className='outline-none' />
+        <span className='block'>of {totalPage}</span>
+      </label>
     </div>
   )
 }

@@ -5,8 +5,8 @@ import Sidebar from './sidebar'
 export default async function RootLayout ({ children }) {
   return (
     <html lang='en'>
-      <body suppressHydrationWarning={true}>
-        <div className='flex text-sm text-black/70'>
+      <body suppressHydrationWarning={true} className='text-sm text-black/70'>
+        <div className='flex'>
           <div className='w-[220px] p-2'>
             <Sidebar />
           </div>

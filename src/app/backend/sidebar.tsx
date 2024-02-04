@@ -23,11 +23,11 @@ export default function Sidebar () {
 }
 
 const SidebarItem = ({ pathname, getActiveCls }) => (feature, featureIdx) => {
-  featuresMap.set(featureIdx, feature.fields)
+  featuresMap.set(featureIdx, feature)
 
   return (
     <div key={featureIdx}>
-      <Link href={feature.path} className={getActiveCls(feature.path, pathname)}>{feature.label}</Link>
+      <Link href={feature.path} className={getActiveCls(feature.path, pathname)}>{feature.sidebarLabel || feature.label}</Link>
     </div>
   )
 }

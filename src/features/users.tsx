@@ -1,7 +1,9 @@
 import _ from 'lodash'
 
 export default {
-  label: '会员管理',
+  label: '前台账号',
+
+  sidebarLabel: '前台账号',
 
   path: '/backend/users',
 

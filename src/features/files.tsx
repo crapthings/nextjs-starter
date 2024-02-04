@@ -1,7 +1,9 @@
 import _ from 'lodash'
 
 export default {
-  label: '文件管理',
+  label: '文件',
+
+  sidebarLabel: '文件管理',
 
   path: '/backend/files',
 

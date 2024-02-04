@@ -5,8 +5,6 @@ import Pagination from './pagination'
 export default function Table ({ columnDefs, total, limit, rows }) {
   return (
     <div className='overflow-x-auto space-y-2'>
-      <Pagination total={total} limit={limit} />
-
       <table className='table-auto w-full'>
         <thead className='bg-zinc-100 font-semibold text-black/50'>
           <tr>
@@ -24,6 +22,8 @@ export default function Table ({ columnDefs, total, limit, rows }) {
           ))}
         </tbody>
       </table>
+
+      {total > rows.length ? <Pagination total={total} limit={limit} /> : null}
     </div>
   )
 }

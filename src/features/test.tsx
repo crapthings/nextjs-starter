@@ -15,7 +15,7 @@ export default {
     },
 
     text: {
-      label: '单行文本',
+      label: '单行',
       type: 'text',
     },
 
@@ -30,8 +30,35 @@ export default {
     },
 
     textarea: {
-      label: '多行文本',
+      label: '多行',
       type: 'textarea',
     },
+
+    radio: {
+      label: '单选',
+      type: 'radio',
+      defaultValue: '1',
+      options: [
+        { label: '1', value: '1' },
+        { label: '2', value: '2' },
+        { label: '3', value: '3' },
+      ],
+    },
+
+    checkbox: {
+      label: '多选',
+      type: 'checkbox',
+      defaultValue: ['1', '2'],
+      options: [
+        { label: '1', value: '1' },
+        { label: '2', value: '2' },
+        { label: '3', value: '3' },
+      ],
+    },
+
+    toggle: {
+      label: '开关',
+      type: 'toggle',
+    }
   }
 }

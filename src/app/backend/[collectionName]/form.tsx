@@ -3,12 +3,14 @@ import { useForm } from 'react-hook-form'
 import InputReslover from '@/components/inputs'
 
 export default function Form (props) {
-  const { register, handleSubmit } = useForm()
+  const { register, setValue, handleSubmit } = useForm({
+    defaultValues: props.defaultValues
+  })
 
   return (
     <form onSubmit={handleSubmit(props.onSubmit)} className='space-y-8'>
       <div className='space-y-4'>
-        {_.map(props.fields, InputReslover({ ...props, register }))}
+        {_.map(props.fields, InputReslover({ ...props, register, setValue }))}
       </div>
 
       <div className='flex justify-end gap-4'>

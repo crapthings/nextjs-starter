@@ -16,3 +16,13 @@ export const getColumnDefs = (collectionName) => {
 export const getFields = (collectionName) => {
   return _.omitBy(featuresMap.get(collectionName).fields, ({ hideOnForm }) => hideOnForm)
 }
+
+export const getDefaultValues = (collectionName) => {
+  const feature = featuresMap.get(collectionName)
+
+  return _.chain(feature)
+    .get('fields')
+    .omitBy(({ defaultValue }) => !defaultValue)
+    .mapValues('defaultValue')
+    .value()
+}

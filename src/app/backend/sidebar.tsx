@@ -16,7 +16,7 @@ export default function Sidebar () {
   }, 'block p-4 py-2')
 
   return (
-    <div className='h-full p-4 rounded-md bg-zinc-100'>
+    <div className='h-full p-4 rounded-md bg-[#fafafa]'>
       {_.map(features, SidebarItem({ pathname, getActiveCls }))}
     </div>
   )

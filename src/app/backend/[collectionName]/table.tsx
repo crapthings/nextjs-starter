@@ -2,7 +2,7 @@ import _ from 'lodash'
 
 export default function Table ({ columnDefs, data }) {
   return (
-    <div className='overflow-x-auto text-sm'>
+    <div className='overflow-x-auto'>
       <table className='table-auto w-full'>
         <thead className='bg-zinc-100 font-semibold text-black/50'>
           <tr>

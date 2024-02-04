@@ -6,6 +6,7 @@ const mongodb = new MongoClient(MONGO_URL)
 
 export const users = mongodb.db().collection('users')
 export const administrators = mongodb.db().collection('administrators')
+export const files = mongodb.db().collection('files')
 
 mongodb.connect()
 

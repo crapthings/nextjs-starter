@@ -6,12 +6,12 @@ export default async function RootLayout ({ children }) {
   return (
     <html lang='en'>
       <body suppressHydrationWarning={true}>
-        <div className='flex text-black/70'>
+        <div className='flex text-sm text-black/70'>
           <div className='w-[220px] p-2'>
             <Sidebar />
           </div>
 
-          <div className='flex-1 min-h-dvh p-6 bg-zinc-200'>
+          <div className='flex-1 min-h-dvh'>
             {children}
           </div>
         </div>

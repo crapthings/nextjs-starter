@@ -1,7 +1,7 @@
 import mongodb from '@/libs/mongodb'
 
 export default async function (req, res) {
-  const limit = 30
+  const limit = 5
 
   const { collectionName, page } = req.query
 

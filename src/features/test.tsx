@@ -66,9 +66,10 @@ export default {
       ],
     },
 
-    toggle: {
-      label: '开关',
-      type: 'toggle',
+    range: {
+      label: '滑条',
+      type: 'range',
+      valueAsNumber: true,
     },
   }
 }

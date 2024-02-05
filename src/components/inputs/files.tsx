@@ -47,7 +47,7 @@ export default (props) => (field, fieldName) => {
   return (
     <div key={fieldName} className='space-y-1'>
       <div className='flex justify-between text-black/50'>
-        <div>{field.label}</div>
+        <div>{field.label} {info.length ? info.length + ' files' : null}</div>
         <button type='button' disabled={upload.isMutating} onClick={() => inputRef.current.click()} className='p-1 px-2 rounded bg-blue-500 disabled:bg-zinc-500 text-xs text-blue-50 disabled:text-zinc-50'>添加文件</button>
       </div>
 
@@ -57,7 +57,7 @@ export default (props) => (field, fieldName) => {
             {info.map((id) => (
               <div key={id} className='flex justify-between gap-2 p-2 rounded bg-zinc-200'>
                 <div>{cache.current.get(id).originalFilename}</div>
-                <div onClick={() => onRemove(id)} className='whitespace-nowrap cursor-pointer'>X</div>
+                <button type='button' onClick={() => onRemove(id)} className='flex-none size-6 rounded-full bg-blue-500 text-blue-50'>X</button>
               </div>
             ))}
           </div>

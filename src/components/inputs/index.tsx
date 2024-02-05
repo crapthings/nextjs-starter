@@ -7,6 +7,7 @@ import CheckboxInput from './checkbox'
 import ToggleInput from './toggle'
 import FileInput from './file'
 import FilesInput from './files'
+import RangeInput from './range'
 
 const InputReslover = (props) => (field, fieldName) => {
   const inputMap = {
@@ -19,6 +20,7 @@ const InputReslover = (props) => (field, fieldName) => {
     toggle: ToggleInput,
     file: FileInput,
     files: FilesInput,
+    range: RangeInput,
   }
 
   const inputComp = inputMap[field.type] || TextInput

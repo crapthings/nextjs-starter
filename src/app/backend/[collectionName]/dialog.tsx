@@ -5,7 +5,7 @@ export default function Dialog ({ children, onClose }) {
         <div onClick={onClose} className='absolute inset-0 bg-zinc-100/50 backdrop-blur-sm cursor-pointer'></div>
 
         <div className='absolute inset-0 flex justify-center items-center pointer-events-none'>
-          <div className='pointer-events-auto'>{children}</div>
+          <div className='overflow-y-auto max-h-[76dvh] pointer-events-auto shadow'>{children}</div>
         </div>
       </div>
     </div>

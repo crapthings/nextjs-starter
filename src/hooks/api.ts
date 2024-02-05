@@ -16,3 +16,7 @@ export const useSign = (url) => useSWRMutation(url, sign)
 // logout
 export const logout = (url) => axios.post(url).then((resp) => resp.data)
 export const useLogout = (url) => useSWRMutation(url, logout)
+
+// upload
+const upload = (url, { arg }) => axios.post(url, arg).then((resp) => resp.data)
+export const useUpload = () => useSWRMutation('/upload', upload)

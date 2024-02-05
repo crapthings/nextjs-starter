@@ -7,7 +7,7 @@ export default (props) => (field, fieldName) => {
 
   return (
     <div key={fieldName} className='space-y-2'>
-      <label className='block'>{field.label}</label>
+      <label className='block text-black/50'>{field.label}</label>
 
       <div className='flex gap-4'>
         {options.map((option, optionIdx) => (

@@ -3,7 +3,7 @@ export default (props) => (field, fieldName) => {
 
   return (
     <div key={fieldName} className='space-y-1'>
-      <label htmlFor={`field-${fieldName}`} className='block'>{field.label}</label>
+      <label htmlFor={`field-${fieldName}`} className='block text-black/50'>{field.label}</label>
 
       <textarea
         type='text'

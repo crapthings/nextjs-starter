@@ -14,6 +14,16 @@ export default {
       render: ({ value }) => <span title={value}>{_.truncate(value, { length: 9 })}</span>
     },
 
+    file: {
+      label: '单附件',
+      type: 'file',
+    },
+
+    files: {
+      label: '多附件',
+      type: 'files',
+    },
+
     text: {
       label: '单行',
       type: 'text',
@@ -59,6 +69,6 @@ export default {
     toggle: {
       label: '开关',
       type: 'toggle',
-    }
+    },
   }
 }

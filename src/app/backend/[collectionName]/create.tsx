@@ -28,7 +28,7 @@ export default function Create () {
 
   return createPortal((
     <Dialog onClose={handleClose}>
-      <div className='w-[640px] p-8 space-y-8 rounded-md bg-white shadow'>
+      <div className='w-[640px] p-8 space-y-8 rounded-md bg-white'>
         <div className='font-semibold text-xl'>新增{feature.label}</div>
         <Form fields={fields} defaultValues={defaultValues} onClose={handleClose} onSubmit={handleSubmit} />
       </div>

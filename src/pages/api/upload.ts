@@ -12,14 +12,16 @@ export default async function (req, res) {
 
   const [fields, uploads] = await form.parse(req)
 
-  const result = await files.insertMany(uploads.files.map((file) => normalizeDoc({
+  const result = uploads.files.map((file) => normalizeDoc({
     lastModifiedDate: file.lastModifiedDate,
     filepath: file.filepath,
     newFilename: file.newFilename,
     originalFilename: file.originalFilename,
     mimetype: file.mimetype,
     size: file.size,
-  })))
+  }))
+
+  await files.insertMany(result)
 
   res.json({ success: true, result })
 }

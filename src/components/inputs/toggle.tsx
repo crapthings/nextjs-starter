@@ -7,7 +7,7 @@ export default (props) => (field, fieldName) => {
 
   return (
     <div key={fieldName} className='space-y-2'>
-      <label htmlFor={`field-${fieldName}`} className='block'>{field.label}</label>
+      <label htmlFor={`field-${fieldName}`} className='block text-black/50'>{field.label}</label>
 
       <label className='inline-block w-8 h-4 rounded bg-zinc-100'>
         <input
